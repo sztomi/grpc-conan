@@ -7,7 +7,7 @@ class gRPCConan(ConanFile):
     name = 'grpc'
     version = '1.0.1'
     description = 'An RPC library and framework'
-    url = 'https://github.com/a_teammate/conan-grpc.git'
+    url = 'https://github.com/sztomi/grpc-conan'
     repo_url = 'https://github.com/grpc/grpc.git'
     license = 'MIT'
     requires = 'zlib/1.2.8@lasote/stable', 'OpenSSL/1.0.2i@lasote/stable'
