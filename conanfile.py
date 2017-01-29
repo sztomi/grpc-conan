@@ -5,7 +5,7 @@ import shutil
 
 class gRPCConan(ConanFile):
     name = 'grpc'
-    version = '1.0.1'
+    version = '1.1.0-pre1'
     description = 'An RPC library and framework'
     url = 'https://github.com/sztomi/grpc-conan'
     repo_url = 'https://github.com/grpc/grpc.git'
@@ -30,9 +30,11 @@ class gRPCConan(ConanFile):
         self.copy('*.a', src='grpc/libs/opt/protobuf', dst='lib')
 
     def package_info(self):
+        self.cpp_info.libdirs = ['{}/lib'.format(self.package_folder)]
         self.cpp_info.libs = [
                 'gpr', 'grpc', 'grpc++', 'grpc_unsecure',
                 'grpc++_unsecure', 'protobuf']
+        self.cpp_info.includedirs = ['{}/include'.format(self.package_folder)]
         if self.settings.compiler == 'Visual Studio':
             self.cpp_info.libs += ['wsock32', 'ws2_32']
         self.env_info.path.append(os.path.join(self.package_folder, 'bin'))
